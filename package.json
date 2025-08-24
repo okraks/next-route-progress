@@ -1,7 +1,7 @@
 {
   "name": "next-route-progress",
-  "version": "1.0.6",
-  "description": "A lightweight progress bar for Next.js App Router (a modern alternative to nprogress).",
+  "version": "1.0.7",
+  "description": "A lightweight progress bar for Next.js App Router (a modern alternative to nextjs-progressbar).",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",

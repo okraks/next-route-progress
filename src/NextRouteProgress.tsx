@@ -1,19 +1,21 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function NextRouteProgress({
-  height = 5,
-  color = "#5e5e5e",
-  transitionDuration = 300,
-  easingFunction = "ease-out",
-}: {
+interface ProgressInterface {
   height?: number;
   color?: `#${string}`;
   transitionDuration?: number;
   easingFunction?: "ease-out" | "ease" | "ease-in" | "linear" | "ease-in-out";
-}) {
+}
+
+function Progress({
+  height = 5,
+  color = "#5e5e5e",
+  transitionDuration = 300,
+  easingFunction = "ease-out",
+}: ProgressInterface) {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -98,5 +100,23 @@ export default function NextRouteProgress({
         opacity: loadingProgress === 100 ? 0 : 1,
       }}
     />
+  );
+}
+
+export default function NextRouteProgress({
+  height = 5,
+  color = "#5e5e5e",
+  transitionDuration = 300,
+  easingFunction = "ease-out",
+}: ProgressInterface) {
+  return (
+    <Suspense>
+      <Progress
+        height={height}
+        color={color}
+        transitionDuration={transitionDuration}
+        easingFunction={easingFunction}
+      />
+    </Suspense>
   );
 }
