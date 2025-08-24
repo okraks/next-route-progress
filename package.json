@@ -1,0 +1,35 @@
+{
+  "name": "next-route-progress",
+  "version": "1.0.0",
+  "description": "A lightweight progress bar for Next.js App Router (a modern alternative to nprogress).",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "nextjs",
+    "progress",
+    "loading-bar",
+    "app-router",
+    "react",
+    "typescript",
+    "nprogress"
+  ],
+  "author": "Isaac Antwi",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "next": ">=13.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.4.0"
+  }
+}

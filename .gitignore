@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# build outputs
+/dist
+/.next
+/.turbo
+/.vite
+
+# env
+.env
+.env.local
+
+# 
+package-lock.json
+yarn.lock
+
+# misc
+.DS_Store
