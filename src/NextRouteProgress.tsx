@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function ProgressBar({
+export default function NextRouteProgress({
   height = 5,
   color = "#5e5e5e",
   transitionDuration = 300,

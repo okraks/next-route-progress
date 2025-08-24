@@ -5,8 +5,17 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
@@ -22,9 +31,13 @@
     "nprogress"
   ],
   "author": "Isaac Antwi",
+  "homepage": "https://www.okraks.fyi/next-route-progress",
   "repository": {
     "type": "git",
     "url": "https://github.com/okraks/next-route-progress"
+  },
+  "bugs": {
+    "url": "https://github.com/okraks/next-route-progress/issues"
   },
   "license": "MIT",
   "peerDependencies": {

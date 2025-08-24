@@ -1,1 +1,1 @@
-export { default as LoadingBar } from "./LoadingBar";
+export { default } from "./NextRouteProgress";
