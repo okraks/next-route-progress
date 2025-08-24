@@ -22,6 +22,10 @@
     "nprogress"
   ],
   "author": "Isaac Antwi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okraks/next-route-progress"
+  },
   "license": "MIT",
   "peerDependencies": {
     "react": ">=18.0.0",
