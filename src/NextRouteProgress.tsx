@@ -5,7 +5,7 @@ import { Suspense, useEffect, useState } from "react";
 
 interface ProgressInterface {
   height?: number;
-  color?: `#${string}`;
+  color?: string;
   transitionDuration?: number;
   easingFunction?: "ease-out" | "ease" | "ease-in" | "linear" | "ease-in-out";
 }
