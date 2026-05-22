@@ -26,9 +26,45 @@ function Progress({
     const handleClick = (e: MouseEvent) => {
       const target = e.currentTarget as HTMLAnchorElement;
 
-      if (target.href !== location.href) {
-        setLoadingProgress(10);
+      // Opens in a new tab/window — current page never navigates
+      if (
+        e.metaKey ||
+        e.ctrlKey ||
+        e.shiftKey ||
+        e.altKey ||
+        e.button !== 0 ||
+        target.target === "_blank"
+      ) {
+        return;
       }
+
+      // Downloads don't navigate the SPA
+      if (target.hasAttribute("download")) return;
+
+      let nextUrl: URL;
+      try {
+        nextUrl = new URL(target.href, location.href);
+      } catch {
+        return;
+      }
+
+      // mailto:, tel:, javascript:, etc. — no SPA navigation
+      if (nextUrl.protocol !== "http:" && nextUrl.protocol !== "https:") {
+        return;
+      }
+
+      // External origin — leaves the SPA, no pathname/search change to await
+      if (nextUrl.origin !== location.origin) return;
+
+      // Same route (hash-only change or identical URL) — Next won't re-render
+      if (
+        nextUrl.pathname === location.pathname &&
+        nextUrl.search === location.search
+      ) {
+        return;
+      }
+
+      setLoadingProgress(10);
     };
 
     const anchors = document.querySelectorAll("a");
